@@ -15,8 +15,7 @@ public class BookmarksActivity extends Activity {
 	
 	private static final String TAG = "Lab-Permissions";
 
-	static final String[] projection = { Browser.BookmarkColumns.TITLE,
-			Browser.BookmarkColumns.URL };
+	static final String[] projection = { Browser.BookmarkColumns.TITLE, Browser.BookmarkColumns.URL };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +52,7 @@ public class BookmarksActivity extends Activity {
 
 		String text = "";
 
-		Cursor query = getContentResolver().query(Browser.BOOKMARKS_URI,
-				projection, null, null, null);
+		Cursor query = getContentResolver().query(Browser.BOOKMARKS_URI, projection, null, null, null);
 
 		query.moveToFirst();
 		while (query.moveToNext()) {
@@ -79,8 +77,8 @@ public class BookmarksActivity extends Activity {
 		Log.i(TAG, "Entered startGoToDangerousActivity()");
 
 		// TODO - Start the GoToDangerousActivity
-		
-
+		Intent dangerousActivityIntent = new Intent(getApplicationContext(), GoToDangerousActivity.class);
+		startActivity(dangerousActivityIntent);
 	}
 
 }
